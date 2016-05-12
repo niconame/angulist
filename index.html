@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <title>todolist</title>
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <style>
+  ul li{
+    list-style-type:none;
+  }
+  </style>
+</head>
+
+<body ng-app="todolist" align="center">
+  <h1>todolist</h1>
+
+  <div ng-controller="ListCtrl as vm" align="center">
+    <form ng-submit="vm.auth(vm.listName)">
+      <input type="text" ng-model="vm.listName"/ placeholder="list name">
+      <input type="submit">
+    </form>
+
+    <form ng-submit="vm.addTask(vm.newTaskText)">
+      <input type="text" ng-model="vm.newTaskText"/ placeholder="add a task">
+      <input type="submit">
+    </form>
+
+  <ul>
+    <li ng-repeat="task in vm.tasks">
+      <input type="checkbox" ng-model="task.isDone" ng-change="vm.updateTask(task.id,task.isDone)" >
+      <span ng-bind="task.text"></span>
+      <button ng-click="vm.deleteTask(task.id)">刪了他！</button>
+    </li>
+  </ul>
+
+    <button ng-click="vm.getTasks()">Refresh</button>
+  </div>
+</body>
+</html>
