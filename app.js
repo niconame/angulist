@@ -57,7 +57,7 @@ angular
 angular
 .module("todolist")
 .service('List', function($http){
-  this.baseURL = "https://richegg.top";
+  this.baseURL = "https://yuer.tw";
   this.tasks = [];
   this.auth = function(listName) {
     var data = {
